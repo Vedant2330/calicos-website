@@ -98,12 +98,15 @@ export function Hero() {
       onMouseLeave={() => setPaused(false)}
       style={{
         // Rounded bottom corners per user override
-        borderBottomLeftRadius: "28px",
-        borderBottomRightRadius: "28px",
+        borderBottomLeftRadius: "48px",
+        borderBottomRightRadius: "48px",
       }}
     >
       {/* Slides — cross-fade stack */}
-      <div className="absolute inset-0 overflow-hidden" style={{ borderBottomLeftRadius: "28px", borderBottomRightRadius: "28px" }}>
+      <div
+        className="absolute inset-0 overflow-hidden"
+        style={{ borderBottomLeftRadius: "48px", borderBottomRightRadius: "48px" }}
+      >
         {slides.map((slide, i) => (
           <Slide
             key={i}
