@@ -162,3 +162,42 @@ The hero photograph sits *above* this sentence. The first collection sits *below
 The creative direction is locked. Phase 3 (Design System) translates this into tokens (color, type, spacing, components, motion). Phase 4 (Wireframes) translates the system into page layouts. Phase 5 (High-Fidelity Design) translates the layouts into component specs. Phase 6 (Build) makes it real.
 
 No design decision in any later phase may contradict a non-negotiable (§4) or an emotional-job mapping (§5). If a tension appears, we come back here, update this doc, and re-derive.
+
+---
+
+## 10. Addendum — Mass-Market Differentiation (added 2026-06-17)
+
+This addendum is a **cross-reference, not a rewrite**. The decisions documented in §1–9 above (no-cart, DM-to-order, editorial restraint, indie magazine positioning) remain canonical. This addendum makes those decisions **traceable to specific mass-market patterns we are rejecting**, so the no-cart / editorial / DM-only architecture is intentional rather than implicit.
+
+### What this addendum does
+
+Companion document: **`research/DIFFERENTIATION_NOTES.md`**. That file captures the visual, layout, interaction, photography, and copy patterns shared across the Indian mass-market D2C ethnic-wear cohort (Libas, Biba, Global Desi, Jaypore, House of Indya, Nykaa Fashion, etc.). It then enumerates the patterns Calicos is explicitly NOT building.
+
+### The three load-bearing differentiations, traced
+
+Each of these is decided in §1–9 above and in STRATEGY.md. Each is the OPPOSITE of a specific mass-market pattern documented in DIFFERENTIATION_NOTES.md.
+
+**1. No cart, no checkout, DM-to-order only.**
+- Decided in: §4 anti-patterns (this document); STRATEGY.md §2.1 sitemap (line 105); STRATEGY.md §7 reference borrow rules; STRATEGY.md §9.8 conversion risk.
+- Mass-market does the opposite: every captured site has a mandatory cart, an add-to-cart button on every product card, and a cart drawer/page (DIFFERENTIATION_NOTES.md rows #17, #18). The cart icon appears in nav with a count badge. Libas even caps it: "Maximum 15 items allowed to check out."
+- Why we're different: sales happen on Instagram DM. Adding a cart would suggest e-commerce and break the editorial fiction. The site's job is the *why*, not the *buy*.
+
+**2. Editorial restraint over promotional density.**
+- Decided in: §1 brand sentence, §4 anti-patterns (16 rows), §5 emotional palette (one job per section).
+- Mass-market does the opposite: top sticky promo bar with countdown, strikethrough prices with % off, "Trending Now" sales-rank sections, "Trending Searches" SEO blocks, loyalty programs, sub-brand navigation, designer collabs, 30+ link footers (DIFFERENTIATION_NOTES.md rows #1, #9, #10, #13, #14, #15, #16, #26).
+- Why we're different: the brand is small, founder-led, and sold by DM. Promotional density would signal scale and corporate structure that does not exist. Restraint is the form the brand's intimacy takes.
+
+**3. Real founder photography, not pack-shot commerce.**
+- Decided in: STRATEGY.md §7 reference borrow rules ("Don't borrow: studio pack-shots in grids"); §3 NN4 above ("Real photography only. Zero AI-generated humans").
+- Mass-market does the opposite: pure white studio pack-shots, models as hangers, bright even lighting, no grain, no lifestyle context in the commerce flow (DIFFERENTIATION_NOTES.md §"Photography style" + rows #23, #24).
+- Why we're different: the founders ARE the brand's visual signature. Two women laughing in a garden with jhumkas and block-printed kurtas — this is what Calicos actually looks like. Replacing that with white-background pack-shots would erase the brand's distinctive feature.
+
+### What this addendum does NOT do
+
+- It does not change any decision in §1–9 above. No-cart, DM-only, editorial tone, founder photography, B+C hybrid hero direction — all unchanged.
+- It does not introduce new tokens, new colors, new motion, new typography. The DESIGN_SYSTEM.md decisions are unchanged.
+- It does not approve building. Phase 3 (build) is still gated on sign-off.
+
+### Status
+
+Awaiting sign-off before resuming Phase 2 (design plan) or Phase 3 (build).
