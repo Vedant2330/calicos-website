@@ -1,0 +1,556 @@
+# Calicos — Design System
+**Phase 3 deliverable.** Code-ready tokens, primitives, and motion specs. Translation of `CREATIVE_DIRECTION.md` into the building blocks a developer needs.
+
+This document is the **single source of truth** for tokens. If a component in the codebase disagrees with this file, this file wins.
+
+---
+
+## 1. Color Tokens
+
+### 1.1 The Palette
+
+Every color used in the site. Hex values are the ground truth. CSS custom-property names are how we reference them in code.
+
+| Token name | Hex | OKLCH | Role |
+|---|---|---|---|
+| `--cream` | #F5EFE0 | oklch(95% 0.02 80) | Primary background. The page color. |
+| `--ivory` | #FAF7F0 | oklch(97% 0.015 85) | Elevated surfaces (cards, modals). |
+| `--ink` | #1A1410 | oklch(20% 0.015 60) | Primary text. Warm black, not pure. |
+| `--ink-soft` | #5C544C | oklch(40% 0.012 65) | Secondary text. Captions, labels. |
+| `--ink-faint` | #9C948A | oklch(65% 0.01 70) | Tertiary text. Metadata. |
+| `--terracotta` | #8B2E1F | oklch(40% 0.13 35) | Earth accent 1. Manifesto strip, CTA hover. |
+| `--mustard` | #D4A017 | oklch(72% 0.15 75) | Earth accent 2. Devanagari text. |
+| `--indigo` | #1E3A5F | oklch(28% 0.08 250) | Earth accent 3. Story section bg. |
+| `--chocolate` | #5C3A21 | oklch(33% 0.05 50) | Earth accent 4. Sparingly. |
+| `--hairline` | rgba(26,20,16,0.12) | — | All borders, dividers, 1px lines. |
+| `--shadow-warm` | rgba(26,20,16,0.08) | — | Card shadows. NEVER `--shadow-cool`. |
+
+### 1.2 Color Rules
+
+- **Page background is ALWAYS `--cream`.** Never `--ivory` for the page itself. `--ivory` is for cards sitting on `--cream`.
+- **Text on `--cream` is ALWAYS `--ink` or a soft variant.** Never `--ink-soft` for primary body — only for secondary info.
+- **Earth accents appear ONE at a time.** A section uses `--terracotta` or `--mustard` or `--indigo`. Not multiple in the same view.
+- **Photography carries its own color.** We don't tint or grade photographs to match the palette. The palette supports the photographs.
+- **No gradients that span the palette.** A `--cream → --terracotta` gradient is allowed as a section background. A `--terracotta → --indigo` gradient is banned.
+- **No transparency on accent colors for text.** Full opacity only.
+
+### 1.3 Tailwind Config Mapping
+
+```js
+// tailwind.config.ts (extract)
+theme: {
+  colors: {
+    cream: 'var(--cream)',
+    ivory: 'var(--ivory)',
+    ink: {
+      DEFAULT: 'var(--ink)',
+      soft: 'var(--ink-soft)',
+      faint: 'var(--ink-faint)',
+    },
+    terracotta: 'var(--terracotta)',
+    mustard: 'var(--mustard)',
+    indigo: {
+      DEFAULT: 'var(--indigo)',
+      // depth variations for indigo section bg
+      900: '#142640',
+      800: 'var(--indigo)',
+      700: '#2C4E78',
+    },
+    chocolate: 'var(--chocolate)',
+    hairline: 'var(--hairline)',
+  },
+}
+```
+
+---
+
+## 2. Typography Tokens
+
+### 2.1 The Type Stack
+
+| Role | Family | Weights used | Source |
+|---|---|---|---|
+| Display | Fraunces (variable) | 400–700, with opsz axis | Google Fonts |
+| Body | Inter (variable) | 400, 500, 600 | next/font (self-hosted) |
+| Devanagari | Noto Serif Devanagari | 400, 500 | Google Fonts (selective preload) |
+
+Both Fraunces and Inter are loaded via `next/font/google` for self-hosting and zero layout shift. Noto Serif Devanagari is loaded only when Devanagari appears on screen.
+
+### 2.2 Type Scale (fluid, clamp-based)
+
+```css
+/* type.css — applied as Tailwind utilities via @layer utilities */
+
+.text-display-xl   { font-family: Fraunces, serif; font-size: clamp(56px, 9vw, 144px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 500; font-variation-settings: 'opsz' 144; }
+.text-display-lg   { font-family: Fraunces, serif; font-size: clamp(40px, 6vw, 88px);  line-height: 1.05; letter-spacing: -0.035em; font-weight: 500; font-variation-settings: 'opsz' 96; }
+.text-display-md   { font-family: Fraunces, serif; font-size: clamp(28px, 4vw, 56px);  line-height: 1.1;  letter-spacing: -0.025em; font-weight: 500; font-variation-settings: 'opsz' 48; }
+.text-display-sm   { font-family: Fraunces, serif; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.2; letter-spacing: -0.015em; font-weight: 500; }
+.text-eyebrow      { font-family: Inter, sans-serif; font-size: 11px; line-height: 1; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; }
+.text-body-lg      { font-family: Inter, sans-serif; font-size: clamp(17px, 1.2vw, 19px); line-height: 1.55; font-weight: 400; }
+.text-body         { font-family: Inter, sans-serif; font-size: 16px; line-height: 1.6;  font-weight: 400; }
+.text-body-sm      { font-family: Inter, sans-serif; font-size: 14px; line-height: 1.55; font-weight: 400; }
+.text-caption      { font-family: Inter, sans-serif; font-size: 12px; line-height: 1.5; letter-spacing: 0.04em; font-weight: 500; }
+.text-devanagari   { font-family: 'Noto Serif Devanagari', Fraunces, serif; font-style: italic; color: var(--mustard); }
+```
+
+### 2.3 Typography Rules
+
+- **Headlines NEVER exceed weight 600.** Display weight 500 is the heaviest we go. Bold weight 700+ is banned.
+- **Italic display is allowed for emphasis (e.g., "साउंडट्रैक"), not for whole paragraphs.**
+- **Body text NEVER italicizes for emphasis.** Use weight shifts or color shifts instead.
+- **Line length is capped at 60ch for body text.** Headlines can run full width.
+- **Headlines can break across multiple lines.** No orphaned single words.
+- **Eyebrow text is always uppercase, letter-spaced, weight 500.** It sits ABOVE a headline, separated by 16px.
+- **Devanagari appears at most once per scroll-screen.** Never two Devanagari elements in view at once.
+
+### 2.4 When to use which display size
+
+| Use | Size |
+|---|---|
+| Hero headline | `text-display-xl` |
+| Section opener (manifesto, "the collection") | `text-display-lg` |
+| Product name on detail page | `text-display-md` |
+| Section sub-header | `text-display-sm` |
+| Pull-quote | `text-display-md` italic |
+| Eyebrow above headlines | `text-eyebrow` |
+| Body, paragraphs | `text-body` or `text-body-lg` |
+| Captions, metadata | `text-caption` |
+
+---
+
+## 3. Spacing Tokens
+
+### 3.1 The 4px-base scale
+
+We use a 4px-base scale. Numbers are arbitrary — what matters is the rhythm.
+
+```js
+// tailwind.config.ts (extract)
+spacing: {
+  '0':  '0',
+  '1':  '4px',
+  '2':  '8px',
+  '3':  '12px',
+  '4':  '16px',
+  '5':  '20px',
+  '6':  '24px',
+  '8':  '32px',
+  '10': '40px',
+  '12': '48px',
+  '16': '64px',
+  '20': '80px',
+  '24': '96px',
+  '32': '128px',
+  '40': '160px',
+  '48': '192px',
+  '56': '224px',
+  '64': '256px',
+  '80': '320px',
+  '96': '384px',
+}
+```
+
+### 3.2 Spacing Rules
+
+- **Vertical rhythm between sections: minimum 96px (`py-24`) on desktop, 64px (`py-16`) on mobile.** Never less. Whitespace IS the design.
+- **Page horizontal padding: 24px on mobile, 48px on tablet, 80px on desktop.** Use a single utility `px-page` defined via container query.
+- **Two columns never touch.** Minimum gutter is 32px (`gap-8`). On mobile, stack vertically.
+- **Image-to-caption gap: 16px.** Always. Same on mobile and desktop.
+- **Headline-to-eyebrow gap: 16px.** Always.
+- **CTA-to-body gap: 32px minimum, 48px preferred.**
+
+### 3.3 Container widths
+
+```css
+/* Container for text content */
+.max-w-prose   { max-width: 60ch; }   /* body paragraphs */
+.max-w-narrow  { max-width: 720px; }  /* section openers, manifesto */
+.max-w-medium  { max-width: 960px; }  /* image captions + intro */
+.max-w-wide    { max-width: 1280px; } /* page content max */
+.max-w-full    { max-width: 100%; }   /* hero, full-bleed images */
+```
+
+---
+
+## 4. Layout Tokens
+
+### 4.1 Breakpoints
+
+```js
+// Tailwind defaults kept; custom where useful
+screens: {
+  sm: '640px',   // tablet portrait
+  md: '768px',   // tablet landscape
+  lg: '1024px',  // desktop
+  xl: '1280px',  // large desktop
+  '2xl': '1536px' // ultra-wide (rarely used)
+}
+```
+
+Mobile-first. All base styles assume `< 640px`. Scale up.
+
+### 4.2 Grid
+
+12-column grid, 80px max gutters on desktop, 24px on mobile.
+
+```html
+<div class="grid grid-cols-12 gap-6 lg:gap-8 px-6 lg:px-20">
+  <!-- col-span-12 on mobile, col-span-X on lg -->
+</div>
+```
+
+The grid is invisible. We don't draw it. We use it to align content.
+
+### 4.3 Border radius
+
+Two values only:
+- `rounded-sm` (4px) — inputs, small UI elements
+- `rounded-md` (12px) — cards, buttons
+
+No pills (`rounded-full`) except for the persistent "DM on Instagram" pill in the bottom corner.
+
+---
+
+## 5. Component Primitives
+
+These are the building blocks. Every page is composed from these.
+
+### 5.1 `<Button>`
+
+```tsx
+type ButtonVariant = 'primary' | 'secondary' | 'ghost'
+type ButtonSize = 'sm' | 'md' | 'lg'
+
+interface ButtonProps {
+  variant?: ButtonVariant
+  size?: ButtonSize
+  href?: string  // when present, renders as <a>; else <button>
+  children: React.ReactNode
+}
+
+// Visual rules
+// primary: bg-ink text-cream hover:bg-terracotta transition-colors duration-700
+// secondary: border border-ink text-ink hover:bg-ink hover:text-cream transition-colors duration-700
+// ghost: text-ink underline-animate (left-to-right, 300ms)
+// sizes: sm=12px text, md=14px text, lg=16px text — height always min 48px (mobile tap target)
+// NEVER: rounded-full, shadow-lg, scale-on-hover
+```
+
+### 5.2 `<Link>`
+
+Inline link. Default browser underline removed. Underline is a 1px line that animates from left to right on hover, 300ms. Color is always `--ink` (becomes `--terracotta` on hover).
+
+### 5.3 `<Image>` (wrapper around `next/image`)
+
+```tsx
+<ImageWrapper>
+  // Always uses next/image with:
+  // - sizes prop explicit
+  // - placeholder="blur" with LQIP
+  // - quality={88} for editorial photos, quality={75} for product photos
+  // - priority={true} only for hero LCP image
+  // - object-fit: cover by default
+  // - Optional "kenburns" prop adds the slow zoom animation (1.00 → 1.06 over 14s)
+</ImageWrapper>
+```
+
+### 5.4 `<Section>`
+
+Page-level container. Provides vertical rhythm.
+
+```tsx
+<Section
+  bg="cream" | "ivory" | "terracotta" | "indigo" | "mustard"
+  spacing="default" | "tight" | "loose"
+  first?={boolean}  // removes top padding if true
+  last?={boolean}   // removes bottom padding if true
+>
+```
+
+### 5.5 `<Eyebrow>`
+
+```tsx
+<Eyebrow>Hand-printed · Pune · Since 2024</Eyebrow>
+// text-eyebrow utility class
+// Always paired with a heading within 16px
+```
+
+### 5.6 `<ManifestoStrip>`
+
+A section primitive specifically for oversized display text on a single-color band. Used for the manifesto + journal pull-quotes.
+
+### 5.7 `<ProductCard>`
+
+```tsx
+<ProductCard
+  image={src}
+  name="Terracotta Ikat Kurta"
+  price="₹2,400"
+  href="/collection/terracotta-ikat-kurta"
+/>
+// Vertical card. Image 4:5 aspect. Name + price below.
+// On hover: image scale 1.03 (600ms), name underline animates left-to-right.
+// No badge, no "new" tag, no "sold out" — DM-first means inventory is fluid.
+```
+
+### 5.8 `<NavLink>`
+
+```tsx
+<NavLink href="/collection">Collection</NavLink>
+// Inline within <nav>. Underline animates from center outward on hover.
+// Active state: ink color with persistent underline.
+```
+
+### 5.9 `<Cursor>`
+
+Desktop only. Renders a small ring + dot that follows the cursor. Grows when hovering interactive elements (links, buttons, cards). Hidden on touch devices via `matchMedia('(pointer: coarse)')`.
+
+### 5.10 `<RevealOnScroll>`
+
+Wrapper that adds a fade+translateY entrance when scrolled into view. Respects `prefers-reduced-motion`. Default settings: opacity 0→1, translateY 24px→0, duration 800ms, cubic-bezier(0.65, 0, 0.35, 1), once-only (no repeat).
+
+---
+
+## 6. Motion Tokens
+
+### 6.1 Easing curves
+
+Three easings. Use these names everywhere.
+
+| Token | cubic-bezier | When |
+|---|---|---|
+| `--ease-out-soft` | `cubic-bezier(0.22, 1, 0.36, 1)` | Element entrances. The default. |
+| `--ease-in-out-soft` | `cubic-bezier(0.65, 0, 0.35, 1)` | Section transitions, fold animations. |
+| `--ease-in-soft` | `cubic-bezier(0.36, 0, 0.22, 1)` | Element exits. Rare. |
+
+Never use: `ease`, `ease-in`, `ease-out`, `ease-in-out`, `linear`. The named easings above replace them entirely.
+
+### 6.2 Duration scale
+
+| Token | ms | When |
+|---|---|---|
+| `--dur-instant` | 100 | Cursor micro-follow |
+| `--dur-quick` | 200 | Underline hovers, button color shifts |
+| `--dur-soft` | 400 | Image scale, link underlines |
+| `--dur-default` | 700 | Section entrances, reveal-on-scroll |
+| `--dur-slow` | 1400 | Headline word-by-word reveals |
+| `--dur-cinema` | 2200 | The Fabric Reveal fold, hero Ken Burns |
+
+### 6.3 Standard patterns
+
+```css
+/* Reveal on scroll */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Ken Burns (continuous) */
+@keyframes kenBurns {
+  from { transform: scale(1.00); }
+  to   { transform: scale(1.06); }
+}
+
+/* Underline left-to-right */
+.link-underline {
+  background-image: linear-gradient(to right, currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--dur-soft) var(--ease-out-soft);
+}
+.link-underline:hover { background-size: 100% 1px; }
+```
+
+### 6.4 GSAP defaults (in code)
+
+```ts
+// lib/motion.ts
+export const MOTION = {
+  ease: 'power3.out',  // maps to ~cubic-bezier(0.22, 1, 0.36, 1)
+  easeInOut: 'power2.inOut',
+  dur: {
+    quick: 0.2,
+    soft: 0.4,
+    default: 0.7,
+    slow: 1.4,
+    cinema: 2.2,
+  },
+  stagger: {
+    tight: 0.04,
+    default: 0.08,
+    loose: 0.12,
+  },
+} as const
+```
+
+### 6.5 Lenis smooth-scroll config
+
+```ts
+const lenis = new Lenis({
+  duration: 1.4,        // slow — feels cinematic
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),  // ease-out-expo
+  smoothWheel: true,
+  wheelMultiplier: 1,
+  touchMultiplier: 1.2, // slight boost on touch
+})
+```
+
+### 6.6 Reduced-motion policy
+
+Every motion has a fallback under `prefers-reduced-motion: reduce`:
+- All translateY / scale / opacity animations → opacity-only fade at 200ms
+- Ken Burns → still image, no animation
+- Lenis smooth scroll → native scroll
+- Custom cursor → native cursor
+- Fabric Reveal → instant cross-fade (no fold)
+
+We test by enabling "Reduce motion" in System Preferences / DevTools and verifying the page is still coherent, still premium, still readable.
+
+---
+
+## 7. Iconography
+
+### 7.1 The rule
+
+Icons are rare. The site uses icons ONLY for:
+- Social links in footer (Instagram, email)
+- The persistent "DM us" pill (Instagram glyph)
+- Navigation menu mobile (single hamburger)
+- Form inputs (envelope for newsletter)
+
+That's it. No icons for product categories. No icons for "free shipping." No icons for trust signals.
+
+### 7.2 Icon system
+
+Use **inline SVG components** for everything. No `lucide-react` (the brand icons get removed in updates — see `web-dev-gotchas`). Use Feather Icons as the visual reference (24×24 viewBox, 1.5px stroke, round caps).
+
+Icons are always `--ink` color, 1.5px stroke, 16px or 20px size. Never filled.
+
+---
+
+## 8. Imagery Rules
+
+### 8.1 Photography specs
+
+| Asset | Min resolution | Aspect | Format | Quality |
+|---|---|---|---|---|
+| Hero photograph | 2400×3000 | 4:5 | AVIF → WebP → JPG | 88 |
+| Section photo | 1600×2000 | 4:5 | AVIF → WebP → JPG | 85 |
+| Product card | 1200×1500 | 4:5 | AVIF → WebP → JPG | 82 |
+| Product detail (gallery) | 1800×2400 | 3:4 | AVIF → WebP → JPG | 88 |
+| Fabric pattern texture | 2048×2048 | 1:1 | PNG (for tileable) or AVIF | 90 |
+| OG image | 1200×630 | 1.91:1 | JPG | 85 |
+
+### 8.2 Image treatment
+
+- All editorial photos get a subtle **film grain** overlay (CSS `::after` pseudo-element with an inline SVG `feTurbulence` filter at 6% opacity).
+- All photos have a **subtle warm color grade** (CSS `filter: saturate(0.92) contrast(0.98)`) — this pulls them toward the cream/earth palette without overriding.
+- No drop shadows on photographs.
+- No borders on photographs.
+- Photographs can extend edge-to-edge (no padding) OR have generous breathing room — never both.
+
+### 8.3 LQIP / placeholders
+
+Every photograph ships with an LQIP (low-quality image placeholder) at ~20px wide, blurred, in `--cream` tone. Generated at build time via `plaiceholder` or `sharp`.
+
+---
+
+## 9. Performance Budget (encoded as a script)
+
+This goes in `package.json`:
+
+```json
+{
+  "scripts": {
+    "perf:check": "node scripts/perf-check.mjs"
+  }
+}
+```
+
+The script enforces:
+- Initial JS bundle < 180 KB gzipped
+- Initial page weight < 2.5 MB
+- LCP element on homepage is the hero photograph
+- All fonts use `font-display: swap`
+- All below-fold images have `loading="lazy"`
+- No render-blocking third-party scripts
+
+Build fails the script → CI fails → cannot deploy.
+
+---
+
+## 10. Accessibility Tokens
+
+| Requirement | Standard |
+|---|---|
+| Color contrast | WCAG AA minimum on all text. `--ink` on `--cream` = 14.5:1 ✓ |
+| Tap targets | 48×48 px minimum on all interactive elements |
+| Focus indicators | Visible, `--ink` outline 2px offset 3px. Never `outline: none` without replacement. |
+| Alt text | Required on all `<img>`. Descriptive, not "image1.jpg". |
+| Heading order | One `<h1>` per page. No skipping levels. |
+| Skip link | "Skip to content" link visible on `:focus`. |
+| `prefers-reduced-motion` | All animations respect. Tested in dev + production. |
+| Keyboard navigation | Every interactive element reachable via Tab. |
+| Screen reader | Semantic HTML throughout. ARIA only when semantic fails. |
+
+---
+
+## 11. Token Quick-Reference (for the developer)
+
+```css
+/* globals.css */
+:root {
+  /* Color */
+  --cream: #F5EFE0;
+  --ivory: #FAF7F0;
+  --ink: #1A1410;
+  --ink-soft: #5C544C;
+  --ink-faint: #9C948A;
+  --terracotta: #8B2E1F;
+  --mustard: #D4A017;
+  --indigo: #1E3A5F;
+  --chocolate: #5C3A21;
+  --hairline: rgba(26, 20, 16, 0.12);
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-in-soft: cubic-bezier(0.36, 0, 0.02, 1);
+
+  --dur-instant: 100ms;
+  --dur-quick: 200ms;
+  --dur-soft: 400ms;
+  --dur-default: 700ms;
+  --dur-slow: 1400ms;
+  --dur-cinema: 2200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 200ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+```
+
+---
+
+## 12. Acceptance Criteria
+
+A component is "design-system complete" when:
+- [ ] Uses only tokens from this document (no inline hex values, no magic numbers)
+- [ ] Respects `prefers-reduced-motion`
+- [ ] Is keyboard-accessible
+- [ ] Passes color-contrast check
+- [ ] Renders correctly at 320px, 768px, 1024px, 1440px
+- [ ] Has no console warnings in dev mode
+- [ ] Has no animation that lasts > 2.2s
+- [ ] Has no animation that uses banned easings
+
+A page is "design-system complete" when:
+- [ ] All above + uses only the 9 component primitives
+- [ ] Has exactly one "showpiece" motion (intensity 3)
+- [ ] Has zero anti-patterns from CREATIVE_DIRECTION.md §4

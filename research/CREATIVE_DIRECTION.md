@@ -1,0 +1,164 @@
+# Calicos — Refined Creative Direction
+**Phase 2 deliverable.** Builds on STRATEGY.md (locked) and BRAND_ANALYSIS.md (captured). Incorporates findings from research phase (12 sites studied).
+
+---
+
+## 1. The Brand Sentence
+
+> **Calicos is the digital equivalent of opening a fabric store in a Pune garden, finding a kurta on the table, and hearing someone laugh in the next room while a sitar plays.**
+
+Everything we build must answer one question: *does this feel like that sentence?*
+
+---
+
+## 2. The Through-Line (what makes Calicos *Calicos*)
+
+After studying 12 premium fashion sites and the actual brand artifacts, three insights converge into a single through-line:
+
+### Insight 1 — *Sound is load-bearing in this brand's identity.*
+The bio is literally "Dressing like life has a Bollywood soundtrack." Every piece of motion content on their Instagram is paired with Hindi/Sufi music. Most "premium fashion" sites treat audio as an afterthought or disable it entirely. **Calicos should treat the visual silence of the site itself as a kind of music** — restrained typography, slow motion, generous negative space. The viewer's internal monologue becomes the soundtrack.
+
+### Insight 2 — *The brand is a duo, not a logo.*
+Two co-founders (@radhaphatak, @priii._.29) appear in EVERY photograph. The duo is the brand's most distinctive visual asset. Most fashion sites have abstract imagery — a single model, a product flat-lay, a still life. Calicos has **two women, laughing, in motion.** The website's job is to make the visitor feel they are being let into a friendship.
+
+### Insight 3 — *Indian craft heritage × modern editorial is the actual category.*
+This is not "Indian fashion made modern." This is not "Western minimalism with Indian textiles." It is a third thing: **handmade block-printed fabric treated with the visual discipline of an indie magazine.** Think *Apartamento* magazine (the indie interiors quarterly) but for clothing. Warm, considered, opinionated, slow.
+
+**The through-line:** *Slow cinema × Indian craft × founder intimacy.*
+
+If a design decision does not serve at least two of these three, it does not belong.
+
+---
+
+## 3. The Five Non-Negotiables (carry these into every component)
+
+### NN1. Cream, not white.
+The site background is `--cream` (#F5EFE0). NEVER `#FFFFFF`. Pure white reads as sterile, corporate, ecommerce. Cream reads as paper, fabric, warm.
+
+### NN2. Type does the talking.
+We don't need many words. When words appear, they are oversized, generous, and slow to reveal. Display serif = Fraunces (variable). Body = Inter. That's the whole type stack.
+
+### NN3. One showpiece per page. Max.
+Homepage: the Fabric Reveal is the showpiece. Every other motion is intensity 2 or below.
+Collection page: the lookbook header is the showpiece.
+Product page: the image gallery is the showpiece.
+If you can't decide which element is the showpiece, you have two. Remove one.
+
+### NN4. Real photography only.
+Zero AI-generated humans. Zero AI-generated clothing. The hero photograph is from their actual Instagram. The product images are from their actual posts. We crop, we resize, we add grain — but the source is always real.
+
+### NN5. The kurtas are the motion.
+Fabric is already in motion in real life — it sways, it folds, it catches light. The website's animation language should borrow from fabric physics: slow, continuous, organic. Never springy, never bouncy, never overshoot.
+
+---
+
+## 4. What we will NOT do (anti-patterns)
+
+These are decisions we've made once, in writing, so we don't waste cycles re-debating them in build.
+
+| Anti-pattern | Why we reject it |
+|---|---|
+| **Pop-up modals** (newsletter, age gate, "wait! 10% off") | Reads as ecommerce. Destroys editorial trust. |
+| **Carousel/slider on the hero** | Engagement theater. A photograph doesn't need to slide. |
+| **"Shop Now" CTAs above the fold** | Sales happen on Instagram DM. The site's job is the *why*, not the *buy*. |
+| **Countdown timers** | Fabric doesn't ship in 24 hours. Slowness is the brand. |
+| **Floating WhatsApp button** | A persistent bottom-right IG DM link is enough. WhatsApp is one alternative, not the centerpiece. |
+| **Sticky video backgrounds** | Hostile to mobile data. We use static images + Ken Burns. |
+| **Multi-column product grids (4-up)** | Looks like Myntra. We use 1-up or 2-up with generous gutters. |
+| **Color swatches on product cards** | We have 4 products. We don't need filters. We need breath. |
+| **Reviews / star ratings** | Calicos doesn't have reviews infrastructure. Adding fake ones is dishonest. |
+| **"Free shipping above ₹X"** | Sales happen via DM, not checkout. Irrelevant. |
+| **Newsletter pop-up with 20% off coupon** | Treats visitors as leads, not readers. |
+| **Multiple fonts (display + body + accent + mono)** | Two families max. Three is a system failure. |
+| **Glassmorphism / blur / neon gradients** | 2020 SaaS aesthetic. Wrong decade, wrong category. |
+| **Cookie banner the size of the hero** | Privacy-first analytics. No third-party scripts. Single-line cookie notice. |
+| **Auto-playing audio** | The single fastest way to lose a visitor. Ever. |
+| **Hamburger menu on desktop** | Nav is short. Put it on screen. |
+
+---
+
+## 5. The Emotional Palette (for copy & motion decisions)
+
+Every section of the site has exactly one job, and that job maps to one emotion:
+
+| Section | One job | The emotion |
+|---|---|---|
+| Hero | Earn the right to be looked at | **Curiosity** |
+| Manifesto | State the brand's belief | **Trust** |
+| Fabric Reveal | Show the craft becomes the product | **Delight** |
+| Collection Preview | Show the work, with room to breathe | **Respect** |
+| Story Teaser | Open the door to the founders | **Intimacy** |
+| Journal Preview | Prove the brand writes, not just sells | **Voice** |
+| Find Us | Convert without sounding like conversion | **Invitation** |
+| Footer | Close quietly | **Settled** |
+
+If a section triggers two of these emotions, we have a problem — the dominant one wins, the other gets cut.
+
+---
+
+## 6. The Voice & Tone (for every line of copy)
+
+Three rules for every word on the site:
+
+### Rule 1 — Show, don't sell.
+- ❌ "Handcrafted with love"
+- ✅ "Block-printed by hand in Pune."
+
+### Rule 2 — Bilingual when natural, English by default.
+- Use Devanagari only for: the logo lockup, occasional seals (औरिजनल), one pull-quote per page max.
+- Never translate a tagline just to use Devanagari. It must *earn* its place.
+
+### Rule 3 — Sentences are short. Lines are short. Lines breathe.
+- ❌ "We started Calicos because we wanted to bring the warmth and authenticity of Indian textile traditions to a new generation of women who appreciate slow fashion."
+- ✅ "Two friends. One fabric store. A lot of chai."
+
+### Voice reference points:
+- **Aime Leon Dore's product descriptions** — flat, observational, almost deadpan
+- **Apartamento magazine's captions** — warm, slightly poetic, never exclamatory
+- **The New Yorker's section titles** — restrained, intelligent, never trying too hard
+- **NOT** Goop. NOT Reformation. NOT any "elevated everyday" copy voice.
+
+---
+
+## 7. The Decision Log (for traceability)
+
+Decisions made during this creative-direction refinement, with reasoning:
+
+| Decision | Alternative considered | Why we chose this |
+|---|---|---|
+| Hero photograph = post #4 (duo kurtis shot) | Post #1 (bandana selfie) | Post #4 has the founder-duo signature + shows two products in one frame + foliage backdrop + the "औरिजनल" seal. Most brand-defining image in the archive. |
+| Display font = Fraunces (variable) | Cormorant Garamond, PP Editorial New | Fraunces is free, supports Devanagari via fallback, has a variable axis from delicate to display, and feels both old-Hollywood AND modern. Cormorant is more old-world; PP Editorial is paywalled. |
+| Body font = Inter | General Sans, Satoshi | Inter is free, universally available, has a "soft" weight axis, and pairs cleanly with Fraunces. No license risk. |
+| Background = cream (#F5EFE0) | Pure white (#FFFFFF), off-white (#FAFAFA) | Cream has warmth and reads as paper/fabric. Off-white reads as canvas. Pure white reads as SaaS. |
+| Accent palette = terracotta / mustard / indigo / chocolate | Sage green, blush pink, lilac | The brand's actual color DNA is earth tones. Pastels would betray the brand. |
+| Fabric Reveal uses CSS-only fold (no WebGL shader) | Three.js shader, R3F, PixiJS | The fold is achievable with two `<div>`s + CSS `transform: perspective()`. WebGL adds 80KB+ and a new failure mode for a 2.2-second moment. CSS wins on every axis except "looks more impressive in a case study." |
+| No autoplay video on mobile | Adaptive video with throttling | Video on Indian mobile networks is hostile. Static photograph + Ken Burns is the mobile hero. Period. |
+| Cursor = default on mobile, small ring on desktop | Custom cursor on both | Custom cursor is desktop-only. Touch users get default. Saves a perf branch and avoids iOS Safari quirks. |
+| Single CTA per section max | Multi-button rows | One CTA per section. "Discover the collection" → /collection. "Read the story" → /story. "Find us at 11:11 flea" → /find-us. |
+| No cart, no checkout, no Shopify | Lightweight Shopify Buy Button | The brand explicitly sells via Instagram DM. A buy button would suggest ecommerce and break the editorial fiction. |
+| Domain: calicos.co (if available), fallback: wearcalicos.com | calicos.in, calicos.shop | .co matches the Instagram handle. .in is too regional for a brand with international ambitions. .com is taken (almost certainly). |
+| Newsletter = single email field in footer | Pop-up, slide-in, lead magnet | A footer input, submitted, gives a "thank you" line and that's it. No bait, no pop-up. The list is small and the goal is friendship, not 10K subscribers. |
+
+---
+
+## 8. The Calicos Manifesto (final, locked)
+
+This is the ONE piece of copy on the site that every other piece must rhyme with. It appears on the manifesto strip and is referenced in every section's emotional goal.
+
+> **Dressing like life has a Bollywood soundtrack.**
+
+Beneath it, in Devanagari, in mustard yellow:
+
+> **जैसे ज़िन्दगी का अपना साउंडट्रैक हो।**
+
+(Translation: "as if life had its own soundtrack.")
+
+The hero photograph sits *above* this sentence. The first collection sits *below* it. The site is the visual proof of the sentence.
+
+---
+
+## 9. Ready for design system
+
+The creative direction is locked. Phase 3 (Design System) translates this into tokens (color, type, spacing, components, motion). Phase 4 (Wireframes) translates the system into page layouts. Phase 5 (High-Fidelity Design) translates the layouts into component specs. Phase 6 (Build) makes it real.
+
+No design decision in any later phase may contradict a non-negotiable (§4) or an emotional-job mapping (§5). If a tension appears, we come back here, update this doc, and re-derive.
