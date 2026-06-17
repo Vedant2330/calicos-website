@@ -78,7 +78,7 @@ V1 had an implicit definition: premium = restrained, slow, quiet, sparse. That d
 Specifically:
 
 - **Editorial voice** = founder-named copy, poetic headlines, no SEO stuffing, no "✓ 100% Authentic" checklist, no designer-collab-as-marketing.
-- **Editorial visual language** = real photography (no AI people, no pack-shots on white), natural daylight, foliage backdrops, oxidized-silver jewelry visible, the two co-founders visible.
+- **Editorial visual language** = real photography (no AI people, no pack-shots on white), natural daylight, foliage backdrops, oxidized-silver jewelry visible. The brand's visual signature on Instagram features the two co-founders in candid garden settings — that signature is honored in **supporting roles** on the website (`/story`, optional compact homepage teaser), NEVER in the hero position. See §9.3.1.
 - **Functional commerce mechanics** = real cart, real checkout, real filters, real sort, real PDP with size selector + quantity + add-to-cart, real order confirmation page. NONE of these need to be loud or disruptive. They can sit quietly inside an editorial surface — but they MUST exist.
 
 Aritzia, Reformation, and Nicobar all hit this balance. They look like fashion magazines but they sell like real stores. That's the target.
@@ -101,8 +101,17 @@ Cart drawer: the line-item animation on add is the showpiece.
 Checkout: the stepper is the showpiece.
 If you can't decide which element is the showpiece, you have two. Remove one.
 
-### NN4. Real photography only — and cropped cleanly.
-Zero AI-generated humans. Zero AI-generated clothing. Zero Instagram UI chrome (no Follow buttons, no like icons, no comment textboxes, no app close-X) baked into imagery. Every sourced image is the photograph itself, cropped to remove all app chrome. Burned-in editorial text on Instagram posts ("Bandanas available!", "Soft launch") is recreated natively in the website's own type system, not preserved as baked image overlay. See `SCREENSHOT_AUDIT.md` for the full retro audit.
+### NN4. Imagery rules (V2 corrected — 2026-06-18).
+
+**This project is a speculative pitch deliverable, not a confirmed engagement.** There is no active asset-sharing relationship with Radha or Priya. The website as built is the pitch deliverable — AI-generated placeholders are polished to be the final assets, not temporary stand-ins.
+
+- **The hero photograph, product imagery, founder-adjacent portraits, and journal covers are AI-generated for the pitch.** Polish accordingly — these are not temporary stand-ins to be swapped later. They need to look genuinely good and finished.
+- **AI generation rule: generic people only. NEVER depict Radha Phatak or Priya specifically via AI.** This is a hard rule regardless of how realistic AI gets at matching real people. Generic South Asian women in Calicos-style kurtis = OK. Names, likenesses, or identifiable depictions of the founders via AI = not OK.
+- **Where real IG content is clean (passes SCREENSHOT_AUDIT.md self-check), it is preferred over AI.** Real public content is the strongest authenticity signal. (As of this writing, all 7 existing IG captures are contaminated; clean IG content is not yet available. If/when this becomes commissioned work and Radha/Priya share originals, those become Tier A.)
+- **All imagery must be free of Instagram UI chrome** (no Follow buttons, like icons, comment textboxes, app close-X, etc.). Burned-in IG editorial text ("Bandanas available!", "Soft launch") is recreated natively in the website's own type system, not preserved as baked image overlay.
+- **If/when this becomes commissioned work:** real founder photography replaces AI placeholders. The design system, copy, and commerce architecture all stay; only the imagery source changes. See `§10` for the full asset manifest with source tags.
+
+The operational rules (Tier A / Tier B / Tier C) and the pitch asset list are in `§10`.
 
 ### NN5. The kurtas are the motion.
 Fabric is already in motion in real life — it sways, it folds, it catches light. The website's animation language borrows from fabric physics: slow, continuous, organic. Never springy, never bouncy, never overshoot.
@@ -222,6 +231,8 @@ The user flagged two design system constraints in a post-V2 review pass that wer
 - Page content scrolls UNDER the navbar. The hero section uses `padding-top` to compensate so content doesn't disappear behind the navbar.
 - The mobile drawer also floats (slides from the right edge of the viewport, full-height).
 
+**EXCEPTION — checkout flow uses a simpler static header (deliberate, not an oversight).** The cart drawer, `/checkout` flow, and `/order/[id]` confirmation page use a fixed/static header that is always solid `--cream` with the 1px hairline border from the moment the page renders. No transparent-to-solid scroll transition. Reason: commerce flows need clarity, not romance — a transparent navbar that fades in on scroll adds nothing to a checkout step. The checkout header is a smaller, simpler variant of the standard nav (logo + stepper + minimal utility icons), not the full editorial nav.
+
 **What this is NOT:** it is NOT a "sticky bar that takes 60-80px of permanent vertical space pushing content down" (the mass-market pattern, where every page is visibly shorter because of the always-visible header bar). The floating pattern gives the page more vertical real estate for imagery and is the modern editorial-web convention.
 
 **Why this matters for Calicos:** the brand's hero photography is full-bleed — a sticky bar would shrink the hero by 10-15%, which is exactly the kind of "feels like a real store but slightly off" trade-off the V2 direction is trying to avoid.
@@ -279,14 +290,30 @@ The user flagged two design system constraints in a post-V2 review pass that wer
 
 | # | Section | Purpose |
 |---|---|---|
-| 1 | Hero (Concept C) | Curiosity — full-bleed photograph, oversized serif, Ken Burns |
+| 1 | Hero (Concept C) — **model wearing the product, NOT the founders** | Curiosity — full-bleed photograph, oversized serif, Ken Burns. See §9.3.1 for the hero direction rule. |
 | 2 | Manifesto | Trust — "Dressing like life has a Bollywood soundtrack" on terracotta band |
 | 3 | Fabric Reveal (Concept B) | Delight — pattern folds away to reveal first collection photograph |
 | 4 | Collection preview | Respect + Confidence — 4 products, real product cards with single price |
-| 5 | Story teaser | Intimacy — founder photo + one paragraph |
+| 5 | Story teaser — **founder moment in supporting role, NOT full-viewport** | Intimacy — compact founder portrait + one paragraph. See §9.3.1. |
 | 6 | Journal preview | Voice — 2 latest entries |
 | 7 | Find Us | Invitation — flea schedule + IG + email |
 | 8 | Footer | Settled — three columns, single-line email input |
+
+### 9.3.1 Hero direction (V2 corrected — 2026-06-18)
+
+**Hero = a model wearing the product. NOT the founders. NEVER the founders.**
+
+This rule replaces any earlier framing where "the strongest available Calicos photograph" or "post #4, the duo kurtis shot" was implicitly the hero. Specifically:
+
+- **The hero photograph is always a model wearing a Calicos kurti** (AI-generated for the pitch deliverable per §10; would be a styled photoshoot if commissioned). Generic South Asian model. Natural light. Foliage backdrop. Jhumkas / silver jewelry visible.
+- **The founders are NOT the hero.** They do not appear in the hero image, the Fabric Reveal reveal image, or any other full-viewport or near-full-viewport moment on the homepage.
+- **Founders appear in lower-emphasis supporting roles only.** Appropriate spots:
+  - `/story` page — founders are the subject, candid photos OK, long-form prose.
+  - Optional compact "meet the founders" teaser block on the homepage — small block, NOT a full-viewport section, surrounded by product and story content. Founders support the brand story; they don't headline it.
+  - Optional inline founder photo in journal entries ("by Radha" with her portrait in a small circle).
+- **Why this rule exists:** the founders' intimacy with the brand is a *secondary* signal. The *primary* signal is the product itself. A customer landing on Calicos should see "beautiful kurta in a garden" first, not "two women I don't know yet." The product is the reason they're here. The founders are the reason they come back.
+
+This rule is structural — it holds regardless of whether the hero is a clean real-IG photograph or an AI-generated placeholder. If the hero is a model, the supporting roles can be the founders (AI or real). If the hero is the founders, the product disappears. **The hero is always the product on a model.**
 
 ### 9.4 NEW — Cart + Checkout + Order Confirmation flows
 
@@ -315,32 +342,80 @@ The user flagged two design system constraints in a post-V2 review pass that wer
 
 ---
 
-## 10. Asset Plan (V2)
+## 10. Asset Plan (V2 corrected — pitch deliverable)
 
-### 10.1 What's needed (new for V2)
+### 10.0 Project status (READ THIS FIRST)
 
-For the build phase, the following image assets are needed:
+**Calicos is a speculative pitch project, not a confirmed engagement.** There is no active asset-sharing relationship with Radha Phatak or Priya. No engagement, no Google Drive folder, no original camera files, no WhatsApp thread, no in-progress asset collection. The website as built for this pitch IS the deliverable, not a temporary stage before "real" assets arrive. AI-generated imagery is polished to be the final asset, not a placeholder.
 
-1. **Hero photograph** — full-bleed photograph from Calicos IG, cropped to remove all IG UI chrome per the criteria in `SCREENSHOT_AUDIT.md`. Best candidate: post #4 (duo kurtis shot, the brand's most distinctive image).
-2. **Collection preview product photos** — 4 products × 1 cover image each. Currently using IG screenshots which are contaminated. **Request from founders**: original DNG/JPG of their best 5 photographs.
-3. **PDP gallery images** — 4 products × 3 gallery images each = 12 images. Real product photography, multiple angles per piece. **Request from founders**: 12 product photos.
-4. **Founder portrait** — for /story page and story teaser. **Request from founders**: 1–2 candid portraits.
-5. **Sneak Peek fabric swatches** — for the Fabric Reveal pattern layer. Currently using inline SVG placeholder. **Request from founders**: high-res photo of an indigo block-print fabric from their archive, tileable.
-6. **Journal cover images** — 3 entries × 1 cover each = 3 images. Currently reusing IG post images. **Request from founders**: 3 candid process shots (fabric close-up, market day, packing orders).
-7. **Story teaser photo** — founder photo. Same as #4.
+If this pitch lands and the project becomes commissioned work, real founder photography replaces AI placeholders. That is a future swap, not an active process. This document describes what the site IS, not what it will become.
 
-### 10.2 What's already available
+### 10.1 Pitch asset manifest (source-tagged)
 
-- Brand colors: cream/ink/earth palette (unchanged from V1)
-- Typography: Fraunces, Inter, Noto Serif Devanagari (unchanged)
-- Logo: raster captured; need SVG vectorization for crisp scaling
-- IG post URLs: captured in `references/posts-urls.md`
+For each visual moment in the pitch deliverable, the asset source is tagged **AI** (AI-generated), **IG** (real, properly-cropped Instagram content), **SVG** (hand-coded vector), or **TYPO** (rendered in the website's own type system, not as an image). These tags are for transparency and legal accounting — they do NOT imply a pending swap.
 
-### 10.3 Self-check before any image goes into V2
+| # | Moment | Source | Description |
+|---|---|---|---|
+| 1 | Hero photograph (homepage full-bleed) | **AI** | **HERO POSITION — model wearing the product, NOT the founders.** Generic young South Asian woman in a Calicos-style kurta, foliage backdrop (bamboo or plumeria), golden-hour natural light. Jhumkas / silver jewelry visible. **Generic — NOT Radha or Priya specifically.** Apply brand warm grade + film grain post-process. 4:5 or 16:9 depending on layout. See §9.3.1 for the hero direction rule. |
+| 2 | Collection preview product covers (4 products on homepage) | **AI** | 4 products: Terracotta Ikat Kurta, Indigo Block-Print Kurta, Mustard Paisley Sundress, Bamboo Bandana. Each on a neutral or foliage backdrop. Generic model. **Generic — NOT the founders.** Apply film grain. 4:5 portrait. |
+| 3 | PDP gallery images (4 products × 3 angles = 12 images) | **AI** | Multiple angles per product: front-on, side, fabric close-up. Same generic model across all 12 for consistency. **Generic — NOT the founders.** Studio-clean backgrounds (NOT white pack-shots — soft beige/cream to match brand). Apply film grain. 4:5 portrait or 3:4. |
+| 4 | Founder portrait — **supporting role only (not hero)** | **AI** | Used on `/story` page and the optional compact homepage "meet the founders" teaser block (NOT full-viewport). Generic young South Asian woman in a Calicos-style kurta, candid setting (laughing, mid-gesture). **Generic — NOT Radha or Priya specifically.** Apply brand warm grade + film grain. 4:5 portrait. |
+| 5 | Fabric Reveal pattern layer (interactive section) | **SVG** (primary) / **AI** (alternate) | Primary: inline SVG block-print pattern (already in V1 build, polished). Alternate: AI-generated seamless indigo block-print tile, used as a `background-image` CSS pattern. Apply via CSS, no per-frame asset. Tileable at any resolution. |
+| 6 | Journal cover images (3 entries) | **AI** | 3 process-shot aesthetic scenes: fabric close-up, market-day stall, packing-orders scene. Generic subjects. **Generic — NOT the founders.** Apply film grain. 5:4 landscape. |
+| 7 | Story teaser photo (homepage) — **supporting role only** | **AI** | Same asset as #4 (founder portrait), reused. Compact placement on homepage, not full-viewport. See §9.3.1. |
+| — | Burned-in editorial text on IG posts ("Bandanas available!", "Soft launch", etc.) | **TYPO** | Re-rendered in Fraunces italic at the website's type scale. Not baked into imagery. The website owns its typography. |
 
-> "Does this contain any Instagram/social-app interface element?"
+**Total external imagery needed:** 1 hero + 4 collection covers + 12 PDP gallery + 1 founder portrait + 3 journal covers = **21 AI-generated images** (plus 1 SVG pattern or 1 AI-generated tile for #5).
 
-If yes: crop again, source a cleaner version, or do not use. The criteria are documented in `SCREENSHOT_AUDIT.md`.
+### 10.2 What's already available (no asset-collection relationship required)
+
+- **AI generation tools** — FAL via `image_generate`. Used for all 21 above.
+- **Real IG content** — 7 captures exist in `research/screenshots/`. Per `SCREENSHOT_AUDIT.md`, all 7 are contaminated with IG UI chrome. None are usable as-is. The captures ARE useful as **visual reference** for AI prompt engineering (color palette, composition, mood) — not as final source assets.
+- **Brand colors** — cream/ink/earth palette (from `BRAND_ANALYSIS.md`). Used in AI prompts to ensure color consistency.
+- **Typography stack** — Fraunces, Inter, Noto Serif Devanagari. Loaded via `next/font/google` for self-hosting.
+- **Logo** — raster captured from IG. Needs SVG vectorization for production quality. One-time asset.
+- **IG post URLs** — captured in `references/posts-urls.md`. Used for prompt reference, not direct use.
+
+### 10.3 Imagery tier rules (operational)
+
+**Tier A — Real, properly-cropped IG content** (preferred when clean)
+- Use when source passes `SCREENSHOT_AUDIT.md` self-check (no IG UI chrome, no burned-in text except editorial).
+- Founder-published IG content is public and usable.
+- **Currently: no Tier A content is available.** All 7 captures are contaminated.
+- **Forward path:** if/when Radha or Priya share clean originals (or commission a shoot), Tier A becomes the primary source. No action in motion for the pitch.
+
+**Tier B — AI-generated** (the primary source for the pitch deliverable)
+- Allowed: generic people, generic kurtas, generic process scenes, generic studio-style product shots.
+- **NOT allowed: depictions of specific real people.** No prompts that name, describe, or attempt to reproduce Radha Phatak or Priya. No "two women who look like Calicos founders." No likeness matching. Generic South Asian women in Calicos-style kurtis = OK.
+- Apply the brand's warm grade + film grain post-process to all AI output.
+- Quality bar: each generated image goes through self-check before use (see §10.4).
+
+**Tier C — No IG UI chrome** (applies to ALL imagery)
+- No Follow buttons, no like/comment/share/bookmark icons, no comment textboxes, no app close-X, no story progress bars.
+- Burned-in IG editorial text is recreated in the website's own type system.
+- This rule is non-negotiable regardless of source (A or B).
+
+### 10.4 Self-check before any image goes into the pitch
+
+Before any image asset is placed into the build:
+
+1. **Source verified.** Is this Tier A (real IG, clean), Tier B (AI, generic), Tier C (no IG UI chrome), or other?
+2. **No real-people depiction via AI.** If Tier B: does the prompt or image depict Radha or Priya specifically? If yes, regenerate with a different prompt. If unsure, regenerate.
+3. **No IG UI chrome.** Crop, source differently, or do not use.
+4. **Brand warm grade + film grain applied.** AI output is post-processed in code (CSS `filter` + grain overlay) before use.
+5. **Color consistency.** Does the image work with the cream/ink/earth palette? If the AI output is too saturated or off-palette, regenerate.
+6. **Composition.** Subject visible, negative space respected, no awkward crops at face/joints.
+
+### 10.5 Forward-looking (NOT in motion now — documentation only)
+
+**If this pitch becomes commissioned work:**
+- AI placeholders are replaced with real founder photography (from Radha/Priya, original camera files shared via a method TBD with the founders at that time).
+- Real product photography replaces AI product imagery.
+- The C+B hybrid hero direction, the design system, the copy, and the commerce architecture all stay unchanged. Only the imagery source changes.
+- `SCREENSHOT_AUDIT.md`'s audit of existing captures becomes mostly moot, since new captures would be clean originals rather than screenshot-with-chrome.
+- A new `SCREENSHOT_AUDIT.md v2` would audit the new originals.
+
+**None of this is happening now.** This section is documentation of the swap path so future designers (or the founders themselves, if they take the build in-house) know which parts of the system are source-agnostic vs source-specific.
 
 ---
 

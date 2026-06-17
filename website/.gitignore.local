@@ -1,0 +1,2 @@
+# Build artifacts not in default .gitignore (defensive)
+.DS_Store

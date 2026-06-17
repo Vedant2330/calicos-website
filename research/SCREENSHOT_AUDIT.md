@@ -71,8 +71,9 @@ Captured fresh via the cloud browser (Camofox + MCP browser tools) for this V2 p
 ## Action items for the V2 build
 
 1. **Source clean photographs for the V2 build.** The seven Tier 1 captures are unusable as-is. Options:
-   - Request from founders: original DNG/JPG files from their camera (Google Drive link), NOT Instagram-compressed.
-   - Crop carefully out of the existing Tier 1 captures using image editing — but only for #03 and #04, where the photo area is usable; the rest need a cleaner source.
+   - **Primary (the pitch deliverable path): AI-generate generic South Asian models in Calicos-style kurtas, foliage backdrops, brand warm grade + film grain applied.** Generic only — never depict Radha Phatak or Priya specifically. See `CREATIVE_DIRECTION_V2.md` §4 NN4 and §10 for the full pitch asset manifest and tier rules.
+   - **Secondary (if/when this becomes commissioned work):** request from founders — original DNG/JPG files from their camera (method TBD with them at that time), NOT Instagram-compressed. **NOT in motion now.**
+   - **Tertiary:** crop carefully out of the existing Tier 1 captures using image editing — but only for #03 and #04, where the photo area is usable; the rest need a cleaner source. Note: even these crops would carry some IG-app context visually (the surrounding UI influences composition). Cropping is a fallback, not the primary path.
    - For "how life sounds in kurtas" yellow text — do this in the website's own type system (Fraunces italic), not as a baked-in image overlay.
 2. **For any V2 image use, run the self-check**: "Does this contain any Instagram/social-app interface element?" If yes, do not use.
 3. **Tier 2/3 captures** (mass-market + Western premium brand-site screenshots) are kept for design differentiation research only. They are NOT candidates for use as website imagery. If the V2 build ever needs a "look how the mass-market does it" reference, those captures serve that purpose.

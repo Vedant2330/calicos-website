@@ -6,6 +6,8 @@
 
 > Brand-first strategy. No code yet. This document is the contract.
 
+**Status note (added 2026-06-18):** Calicos is currently a speculative pitch project, not a confirmed engagement. The brand identity, palette, type, copy, and the C+B hybrid hero direction documented here remain canonical. The asset-acquisition framing in §5.4 has been updated to reflect that no asset-collection relationship is in motion. The active creative direction lives in `CREATIVE_DIRECTION_V2.md` (which supersedes the architecture described in §6 and §9 of this document). Use this file for **why we chose what we chose**; use `CREATIVE_DIRECTION_V2.md` for **what we are building now**.
+
 ---
 
 ## 1. Creative Direction
@@ -297,11 +299,13 @@ Three phases, all scroll-driven:
 | Brand specimen sheet | One-page PDF: logo lockups, color palette, typography, motion principles | For internal use + future collaborations |
 | Audio loop | 15–30s muted Bollywood-style instrumental (sitar + tabla, no vocals) | Generated via MusicGen OR sourced royalty-free. Used as optional opt-in toggle, never autoplay. |
 
-### 5.4 Missing content — request from founders NOW
+### 5.4 Missing content (forward-looking — not in motion for the pitch)
 
-These block development. Send this list the moment you green-light the project.
+**Project status note:** this section is preserved for traceability but does NOT describe an active request. The project is a speculative pitch deliverable, not a confirmed engagement. There is no active asset-sharing relationship with Radha Phatak or Priya. The pitch deliverable uses AI-generated imagery as the final asset (see `CREATIVE_DIRECTION_V2.md` §10 for the source-tagged pitch asset manifest and operational tier rules).
 
-1. **High-resolution originals** of their best 5 photographs (Google Drive link). Not Instagram-compressed. RAW or large JPG preferred.
+If/when this pitch becomes commissioned work, the following would be requested (from the founders, through a method TBD with them at that time — not now):
+
+1. **High-resolution originals** of their best 5 photographs. Not Instagram-compressed. RAW or large JPG preferred.
 2. **Permission** to use the "Edits" highlight video on the website, and confirmation they own the rights to the music (Hariharan/Clinton Cerejo "Pachchad"). If not, we use no audio by default.
 3. **Founding story paragraph** (200–300 words, written by them, not by us). Authenticity lives here. Even broken English is better than AI English.
 4. **Product list** in a spreadsheet:
@@ -315,6 +319,8 @@ These block development. Send this list the moment you green-light the project.
 6. **WhatsApp number** for DM-to-order (or just Instagram handle if they prefer).
 7. **A short founder portrait** (or two) — candid, not posed. Their natural environment. Used on `/story` page.
 8. **One sentence each**: why they started Calicos, why they left Raavya, what's next. Used as pull-quotes on `/story`.
+
+**None of the above is in motion now.** This list is documentation of what a commissioned-work handoff would require. The pitch deliverable is self-contained.
 
 ---
 

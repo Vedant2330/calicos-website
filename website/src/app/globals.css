@@ -1,0 +1,498 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────
+   Calicos Design Tokens — Phase V2
+   Source of truth: research/CREATIVE_DIRECTION_V2.md
+   ───────────────────────────────────────────────────────── */
+
+:root {
+  /* ─── Color ─── */
+  --cream: #F5EFE0;
+  --ivory: #FAF7F0;
+  --ink: #1A1410;
+  --ink-soft: #5C544C;
+  --ink-faint: #9C948A;
+  --terracotta: #8B2E1F;
+  --terracotta-soft: #B85542;
+  --mustard: #D4A017;
+  --indigo: #1E3A5F;
+  --indigo-deep: #142640;
+  --chocolate: #5C3A21;
+  --hairline: rgba(26, 20, 16, 0.12);
+  --hairline-strong: rgba(26, 20, 16, 0.20);
+
+  /* ─── Motion ─── */
+  /* Per NN5 + CREATIVE_DIRECTION_V2 §4 NN5 (fabric-physics) */
+  /* Editorial moments: slow, continuous, organic */
+  /* Commerce moments: function over fabric-physics (faster, more decisive) */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-in-soft: cubic-bezier(0.36, 0, 0.02, 1);
+
+  /* Editorial timings — fabric-physics */
+  --dur-instant: 100ms;
+  --dur-quick: 200ms;
+  --dur-soft: 400ms;
+  --dur-default: 700ms;
+  --dur-slow: 1400ms;
+  --dur-cinema: 2200ms;
+
+  /* Commerce timings — function over fabric-physics */
+  /* Faster, more decisive for cart / checkout / add-to-cart */
+  --dur-cart-line-in: 280ms;      /* line-item slide in on add */
+  --dur-cart-count-bump: 180ms;   /* bag count badge increment */
+  --dur-checkout-step: 320ms;     /* checkout step transition */
+  --dur-cta-press: 120ms;         /* add-to-cart press response */
+
+  /* ─── Layout ─── */
+  --radius-sm: 4px;     /* inputs, tags, chips */
+  --radius-md: 12px;    /* cards, buttons, containers */
+  /* LOCKED per §8.1: no rounded-full, no larger radii */
+
+  /* ─── Shadows ─── */
+  --shadow-sm: 0 1px 2px rgba(26, 20, 16, 0.06);
+  --shadow-md: 0 4px 12px rgba(26, 20, 16, 0.08);
+  --shadow-lg: 0 12px 32px rgba(26, 20, 16, 0.12);
+
+  /* ─── Type ─── */
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+  --font-devanagari: var(--font-noto-devanagari);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Tailwind v4 theme tokens (consumed via @theme inline)
+   ───────────────────────────────────────────────────────── */
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-ivory: var(--ivory);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-soft: var(--terracotta-soft);
+  --color-mustard: var(--mustard);
+  --color-indigo: var(--indigo);
+  --color-indigo-deep: var(--indigo-deep);
+  --color-chocolate: var(--chocolate);
+  --color-hairline: var(--hairline);
+
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  /* Per §8.1: no rounded-full, no larger radii */
+
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+  --font-devanagari: var(--font-noto-devanagari);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Base
+   ───────────────────────────────────────────────────────── */
+
+html, body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+img {
+  user-select: none;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Type utilities (single source of truth)
+   ───────────────────────────────────────────────────────── */
+
+.text-display-xl {
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(56px, 9vw, 144px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  font-variation-settings: "opsz" 144;
+}
+.text-display-lg {
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(40px, 6vw, 88px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+  font-variation-settings: "opsz" 96;
+}
+.text-display-md {
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(28px, 4vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+  font-variation-settings: "opsz" 48;
+}
+.text-display-sm {
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(22px, 2.4vw, 32px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+}
+.text-display-italic {
+  font-family: var(--font-fraunces), serif;
+  font-style: italic;
+  font-variation-settings: "opsz" 144;
+}
+.text-eyebrow {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.text-body-lg {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(17px, 1.2vw, 19px);
+  line-height: 1.55;
+  font-weight: 400;
+}
+.text-body {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.text-body-sm {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 400;
+}
+.text-caption {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.text-devanagari {
+  font-family: var(--font-noto-devanagari), var(--font-fraunces), serif;
+  font-style: italic;
+  color: var(--mustard);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Page horizontal padding (single source)
+   ───────────────────────────────────────────────────────── */
+
+.px-page {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (min-width: 768px) {
+  .px-page { padding-left: 48px; padding-right: 48px; }
+}
+@media (min-width: 1024px) {
+  .px-page { padding-left: 80px; padding-right: 80px; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Link underline animation (left-to-right)
+   ───────────────────────────────────────────────────────── */
+
+.link-underline {
+  background-image: linear-gradient(to right, currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--dur-soft) var(--ease-out-soft);
+}
+.link-underline:hover { background-size: 100% 1px; }
+
+.link-underline-center {
+  background-image: linear-gradient(to right, currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--dur-soft) var(--ease-out-soft);
+}
+.link-underline-center:hover { background-size: 100% 1px; }
+
+/* ─────────────────────────────────────────────────────────
+   Buttons
+   ───────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.875rem 1.75rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--dur-quick) var(--ease-out-soft),
+              color var(--dur-quick) var(--ease-out-soft),
+              border-color var(--dur-quick) var(--ease-out-soft),
+              transform var(--dur-cta-press) var(--ease-out-soft);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background: var(--terracotta);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+.btn-secondary:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  padding: 0;
+  min-height: auto;
+  border-radius: 0;
+}
+
+.btn-light {
+  background: var(--cream);
+  color: var(--ink);
+}
+.btn-light:hover {
+  background: var(--mustard);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Animations (per CREATIVE_DIRECTION_V2 NN5 + Part 4)
+   ───────────────────────────────────────────────────────── */
+
+@keyframes kenBurns {
+  from { transform: scale(1.00); }
+  to   { transform: scale(1.06); }
+}
+
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseLine {
+  0%, 100% { opacity: 0.4; transform: scaleY(0.6); }
+  50%      { opacity: 1;   transform: scaleY(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes wordReveal {
+  from { opacity: 0; transform: translateY(110%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lineItemIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes countBump {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+.anim-kenburns {
+  animation: kenBurns 14s var(--ease-out-soft) forwards;
+}
+.anim-pulse-line {
+  animation: pulseLine 1.6s var(--ease-in-out-soft) infinite;
+  transform-origin: center;
+}
+.anim-fade-in {
+  animation: fadeIn var(--dur-default) var(--ease-out-soft) both;
+}
+.anim-reveal-up {
+  animation: revealUp var(--dur-default) var(--ease-out-soft) both;
+}
+.anim-line-item-in {
+  animation: lineItemIn var(--dur-cart-line-in) var(--ease-out-soft) both;
+}
+.anim-count-bump {
+  animation: countBump var(--dur-cart-count-bump) var(--ease-out-soft);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Image treatment — warm grade + film grain
+   ───────────────────────────────────────────────────────── */
+
+.img-editorial {
+  filter: saturate(0.92) contrast(0.98);
+  position: relative;
+}
+.img-editorial::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.5'/></svg>");
+  opacity: 0.06;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Reduced motion (universal)
+   ───────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 200ms !important;
+    scroll-behavior: auto !important;
+  }
+  .anim-kenburns { animation: none !important; transform: none !important; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Lenis smooth scroll
+   ───────────────────────────────────────────────────────── */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Skip link
+   ───────────────────────────────────────────────────────── */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 1000;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  transition: top var(--dur-quick) var(--ease-out-soft);
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Custom cursor (desktop only)
+   ───────────────────────────────────────────────────────── */
+
+@media (pointer: fine) {
+  .cursor-dot, .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    mix-blend-mode: difference;
+  }
+  .cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--cream);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width var(--dur-quick) var(--ease-out-soft),
+                height var(--dur-quick) var(--ease-out-soft);
+  }
+  .cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--cream);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width var(--dur-soft) var(--ease-out-soft),
+                height var(--dur-soft) var(--ease-out-soft),
+                opacity var(--dur-soft) var(--ease-out-soft);
+    opacity: 0.6;
+  }
+  .cursor-ring[data-hover="true"] { width: 60px; height: 60px; opacity: 1; }
+  .cursor-dot[data-hover="true"] { width: 4px; height: 4px; }
+}
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Reveal on scroll (utility)
+   ───────────────────────────────────────────────────────── */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--dur-default) var(--ease-out-soft),
+              transform var(--dur-default) var(--ease-out-soft);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Checkout flow overrides
+   Per Part 3 EXCEPTION: checkout uses simpler static header
+   ───────────────────────────────────────────────────────── */
+
+body[data-context="checkout"] {
+  /* Ensures checkout pages use static header behavior */
+}
