@@ -1,3 +1,43 @@
+# ARCHIVED — SUPERSEDED 2026-06-18
+
+This file was the original design system for the Calicos website, derived from
+the no-cart / DM-only / editorial-restraint architecture in CREATIVE_DIRECTION.md
+v1. That architecture was reversed on 2026-06-18 in favor of a real e-commerce
+build.
+
+**This document is preserved for reasoning history but is no longer canonical.**
+
+Why it was archived:
+
+- The design system was tightly coupled to the no-cart premise: single CTA per
+  section, no product grid, no filters, no sort, no add-to-cart, no cart drawer,
+  no checkout. Many of the tokens (component primitives like `<ProductCard>`
+  showing one price with no sale-strike) were tuned to a 4-product single-DM
+  flow, not a real store.
+- A V2 design system needs to add new components: full product card with price
+  + variant chips + add-to-cart, cart drawer, cart page, checkout stepper, line
+  item, address form, payment-method selector, order-confirmation page.
+- The COLOR and TYPE tokens (cream/ink/earth, Fraunces/Inter/Noto Devanagari)
+  likely carry forward with adjustments, but spacing, layout, and component
+  primitives need to be re-derived.
+
+What remains useful from V1 for V2 reference:
+
+- Color palette structure (cream background, ink text, 4 earth accents)
+- Typography stack (Fraunces display + Inter body + Noto Devanagari)
+- Motion philosophy (slow cinema, three easings, six durations, no springy)
+- Reduced-motion policy
+- The "single showpiece per page" rule
+
+What is dead from V1 and does NOT carry forward:
+
+- Component primitives: `<ProductCard>` (no add-to-cart), `<Button>` (only DM /
+  primary-secondary-ghost variants — V2 needs cart/checkout actions)
+- All tokens tied to single-CTA / no-cart assumptions
+- The acceptance criteria in §12 (built for DM-first site)
+
+---
+
 # Calicos — Design System
 **Phase 3 deliverable.** Code-ready tokens, primitives, and motion specs. Translation of `CREATIVE_DIRECTION.md` into the building blocks a developer needs.
 

@@ -1,3 +1,48 @@
+# ARCHIVED — SUPERSEDED 2026-06-18
+
+This file was the original creative direction for the Calicos website, locked
+under the no-cart / DM-to-order / editorial-restraint architecture. That
+architecture was reversed on 2026-06-18 in favor of a real e-commerce build.
+
+**This document is preserved for reasoning history but is no longer canonical.**
+
+Why it was archived:
+
+- The premise — "premium editorial publication, sales via Instagram DM, no cart"
+  — was overturned. The actual problem with V1 wasn't brand identity; it was
+  that the site read as a restrained art-magazine, not a place where someone
+  can browse and confidently buy. Premium = considered AND functional.
+- The architecture has been superseded by CREATIVE_DIRECTION_V2.md (canonical
+  for V2 onwards).
+- All decisions in this file that survive V2 (brand sentence, founder-duo
+  photography principle, cream/ink/earth palette, restraint in copy tone,
+  Devanagari usage rules) are re-derived in CREATIVE_DIRECTION_V2.md, not
+  referenced from this file. Do not re-instate any decision here without
+  re-deriving it.
+
+What remains useful from V1 for future reference:
+
+- §1 brand sentence ("digital equivalent of opening a fabric store in a Pune
+  garden...")
+- §3 NN4 ("Real photography only. Zero AI-generated humans.")
+- §5 emotional palette (curiosity / trust / delight / respect / intimacy /
+  voice / invitation / settled)
+- §7 decision log (records of decisions made and why)
+- §10 addendum on mass-market differentiation (raw observations still
+  useful; the "anti-pattern" interpretations have been re-evaluated)
+
+What is dead from V1 and explicitly does NOT carry forward:
+
+- §4 "no Shop Now CTAs above the fold"
+- §4 "no add-to-cart on every card"
+- §4 "no cart drawer"
+- §4 "no filters / sort"
+- §4 "single CTA per section"
+- §7 "no cart, no checkout, no Shopify"
+- Any token/decision that assumed DM-first ordering
+
+---
+
 # Calicos — Refined Creative Direction
 **Phase 2 deliverable.** Builds on STRATEGY.md (locked) and BRAND_ANALYSIS.md (captured). Incorporates findings from research phase (12 sites studied).
 
