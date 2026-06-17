@@ -209,6 +209,41 @@ Empty cart: warm. "Your bag is empty. Find your first piece." Not "Your shopping
 | Newsletter: single-line footer email input | Popup modal | Footer input is sufficient. Popups destroy editorial trust. |
 | Persistent bottom-right "DM to order" pill | Removed (since we have cart now) | **KEPT.** The IG DM is still where actual conversations happen. Cart is for browsing + transaction; IG is for relationship. They complement, not replace. |
 
+### 8.1 Design system constraints added post-review (2026-06-18)
+
+The user flagged two design system constraints in a post-V2 review pass that were not yet captured as named, traceable decisions in this document. **Per your instruction "if it's missing, add it now before I sign off,"** they are added here as named constraints. **My interpretation is flagged — please confirm or correct before signing off.** If either interpretation is wrong, the constraint below is the one to revise; if the interpretation is right, the wording below is the source of truth.
+
+#### Constraint 1 — Floating navbar (interpretation)
+
+**The site uses a floating navbar, not a pushed-down sticky bar.**
+
+- The navbar floats OVER page content (transparent background, no opaque bar pushing content down) at the top of the viewport on initial load.
+- On scroll past ~60px, the navbar transitions to a solid `--cream` background with a 1px `--hairline` bottom border.
+- Page content scrolls UNDER the navbar. The hero section uses `padding-top` to compensate so content doesn't disappear behind the navbar.
+- The mobile drawer also floats (slides from the right edge of the viewport, full-height).
+
+**What this is NOT:** it is NOT a "sticky bar that takes 60-80px of permanent vertical space pushing content down" (the mass-market pattern, where every page is visibly shorter because of the always-visible header bar). The floating pattern gives the page more vertical real estate for imagery and is the modern editorial-web convention.
+
+**Why this matters for Calicos:** the brand's hero photography is full-bleed — a sticky bar would shrink the hero by 10-15%, which is exactly the kind of "feels like a real store but slightly off" trade-off the V2 direction is trying to avoid.
+
+#### Constraint 2 — Rounded-corner constraint (interpretation)
+
+**Border-radius is restricted to two values. No full pills. No giant soft corners.**
+
+- Allowed values:
+  - `4px` (`rounded-sm`) — for small UI elements (inputs, tags, chips)
+  - `12px` (`rounded-md`) — for cards, buttons, image frames
+- **Banned:**
+  - `rounded-full` (full pills) for almost everything. The single exception is the persistent bottom-right "DM to order" Instagram pill — that one stays a pill because (a) V1 established it as a brand hallmark and (b) pills for floating persistent actions are the universal convention (Aritzia bag-count, Reformation chat, etc.).
+  - Anything over 12px (`rounded-lg`, `rounded-xl`, etc.) — these read as "consumer fun app" or "SaaS dashboard," not editorial fashion.
+- Image frames (product card covers, hero photo containers, founder portraits) are NOT rounded at all. Sharp corners on imagery; rounded corners on UI containers.
+
+**Why this matters for Calicos:** the V1 design system explicitly carried this constraint through, but V2 didn't surface it. The mass-market pages often have NO border-radius at all (Libas, Biba) or very large soft corners (Nicobar uses 0; Aritzia uses 0 for product photos and 4px for buttons). Calicos's 4/12 split is a different choice — it says "premium fashion" without saying "consumer fun app" (which is what big radii signal).
+
+### 8.2 What this section does
+
+§8 + §8.1 together are the complete decision log for the V2 creative direction. If a future decision appears to contradict anything in §8, §8.1 is the tiebreaker. The `DESIGN_SYSTEM_V2.md` document (not yet written) will reference §8.1 explicitly so the floating-navbar and rounded-corner constraints are not re-derived from scratch during implementation.
+
 ---
 
 ## 9. Architecture (V2 — what the site actually contains now)
