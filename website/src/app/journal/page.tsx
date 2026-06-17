@@ -48,7 +48,10 @@ export default function JournalPage() {
                 href={`/journal/${entry.slug}`}
                 className="group block"
               >
-                <div className="relative aspect-[5/4] overflow-hidden mb-6 bg-ivory">
+                <div
+                  className="relative aspect-[5/4] overflow-hidden mb-6 bg-ivory"
+                  style={{ borderRadius: "20px" }}
+                >
                   <Image
                     src={journalImages[i % journalImages.length]}
                     alt=""
@@ -56,6 +59,7 @@ export default function JournalPage() {
                     quality={80}
                     sizes="(min-width: 768px) 30vw, 90vw"
                     className="object-cover img-editorial transition-transform duration-700 group-hover:scale-[1.03]"
+                    style={{ borderRadius: "20px" }}
                   />
                 </div>
                 <p className="text-caption text-ink-faint uppercase tracking-widest mb-2">

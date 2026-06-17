@@ -73,7 +73,10 @@ export function ProductDetail({ product }: { product: Product }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
             {/* Gallery */}
             <div className="lg:col-span-7">
-              <div className="relative aspect-[4/5] bg-ivory overflow-hidden mb-4">
+              <div
+                className="relative aspect-[4/5] bg-ivory overflow-hidden mb-4"
+                style={{ borderRadius: "20px" }}
+              >
                 <div
                   className="absolute inset-0"
                   style={{
@@ -89,6 +92,7 @@ export function ProductDetail({ product }: { product: Product }) {
                   priority
                   sizes="(min-width: 1024px) 55vw, 90vw"
                   className="object-cover img-editorial"
+                  style={{ borderRadius: "20px" }}
                 />
               </div>
               <div className="grid grid-cols-3 gap-3">
@@ -101,6 +105,7 @@ export function ProductDetail({ product }: { product: Product }) {
                         ? "opacity-100"
                         : "opacity-50 hover:opacity-80"
                     }`}
+                    style={{ borderRadius: "12px" }}
                     aria-label={`View image ${i + 1}`}
                     aria-pressed={activeImage === i}
                     type="button"
@@ -112,6 +117,7 @@ export function ProductDetail({ product }: { product: Product }) {
                       quality={70}
                       sizes="120px"
                       className="object-cover"
+                      style={{ borderRadius: "12px" }}
                     />
                   </button>
                 ))}
@@ -421,7 +427,10 @@ function RelatedProducts({ currentSlug }: { currentSlug: string }) {
               href={`/collection/${p.slug}`}
               className="group block"
             >
-              <div className="relative aspect-[4/5] bg-ivory overflow-hidden mb-5">
+              <div
+                className="relative aspect-[4/5] bg-ivory overflow-hidden mb-5"
+                style={{ borderRadius: "20px" }}
+              >
                 <div
                   className="absolute inset-0"
                   style={{
@@ -436,6 +445,7 @@ function RelatedProducts({ currentSlug }: { currentSlug: string }) {
                   quality={80}
                   sizes="(min-width: 768px) 30vw, 90vw"
                   className="object-cover img-editorial transition-transform duration-700 group-hover:scale-[1.03]"
+                  style={{ borderRadius: "20px" }}
                 />
               </div>
               <div className="flex items-baseline justify-between gap-4 mb-1">

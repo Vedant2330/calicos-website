@@ -17,15 +17,18 @@ export function StoryTeaser() {
       aria-label="Founders' story"
       className="bg-indigo text-cream"
     >
-      <div className="px-page py-24 lg:py-32">
+      <div className="px-page py-24 lg:py-40">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Portrait — compact, supporting role */}
+          {/* Portrait — compact, supporting role, with rounded corners */}
           <div
             ref={imageRef}
             data-reveal
             className="lg:col-span-5 max-w-md mx-auto lg:mx-0"
           >
-            <div className="relative aspect-[4/5] overflow-hidden">
+            <div
+              className="relative aspect-[4/5] overflow-hidden"
+              style={{ borderRadius: "20px" }}
+            >
               <Image
                 src="/images/founder/portrait.jpg"
                 alt="A young South Asian woman in a hand-block-printed indigo kurta, mid-laugh in a sunlit garden setting. Generic editorial portrait."

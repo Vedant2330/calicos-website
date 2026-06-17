@@ -150,6 +150,90 @@ export const products: Product[] = [
     designersNote:
       "Wear as a headband, neckerchief, wrist tie, or pocket square. Four designs rotate based on whatever fabric we have left at the end of a kurti run — so the pattern you get is one-of-one.",
   },
+  {
+    slug: "backless-ikat-kurta",
+    name: "Backless Ikat Kurta",
+    shortDescription: "Backless · Deep V-cut · Hand-ikat woven",
+    longDescription:
+      "The Backless Ikat was the summer 2026 experiment. We took our best-selling terracotta ikat fabric and cut a deep V at the back, tied at the nape with thin straps. The result is the same ikat you trust, but with a low-key drama that works for evening drinks, market runs, or just feeling fancy at home.",
+    fabric: "100% handloom cotton, hand-ikat woven",
+    care: "Hand wash cold · Line dry in shade",
+    fitsNotes:
+      "Deep V-backless, ties at the nape. Best on smaller bust sizes; for C-cup and above we recommend a low-back bra or a soft bralette.",
+    priceINR: 2800,
+    pattern: "ikat",
+    availability: "in stock",
+    drop: "Summer 2026",
+    palette: { from: "var(--terracotta)", to: "var(--mustard)" },
+    colors: [
+      { name: "Terracotta", hex: "#8B2E1F" },
+    ],
+    sizes: ["XS", "S", "M", "L"],
+    cover: "/images/products/backless-ikat-kurta/cover.jpg",
+    gallery: [
+      "/images/products/backless-ikat-kurta/01-front.jpg",
+      "/images/products/backless-ikat-kurta/02-side.jpg",
+      "/images/products/backless-ikat-kurta/03-detail.jpg",
+    ],
+    designersNote:
+      "Ties at the nape — adjust the bow for your preferred backless depth. Best for warm evenings or as a statement piece with jeans.",
+  },
+  {
+    slug: "kurta-denim-set",
+    name: "Kurta & Denim Set",
+    shortDescription: "Block-print kurta · Straight-cut indigo denim · Western fusion",
+    longDescription:
+      "The set that made us a brand. A hand-block-printed kurta (pick your pattern), tucked into high-waisted straight-cut indigo denim. The denim is from a small workshop in Ahmedabad — the same wash as a 1980s Levi's, but slower.",
+    fabric: "Kurta: 100% handloom cotton · Denim: 12oz selvedge indigo",
+    care: "Hand wash kurta cold · Machine wash denim separately cold",
+    fitsNotes:
+      "Kurta is hip-length, designed to tuck. Denim runs true to size with a high-rise waist. The set is sold as a pair — they go together.",
+    priceINR: 4200,
+    pattern: "block-print",
+    availability: "low stock",
+    drop: "Summer 2026",
+    palette: { from: "var(--indigo)", to: "var(--mustard)" },
+    colors: [
+      { name: "Indigo", hex: "#1E3A5F" },
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    cover: "/images/products/kurta-denim-set/cover.jpg",
+    gallery: [
+      "/images/products/kurta-denim-set/01-front.jpg",
+      "/images/products/kurta-denim-set/02-side.jpg",
+      "/images/products/kurta-denim-set/03-detail.jpg",
+    ],
+    designersNote:
+      "Sold as a pair. The kurta and denim are designed to work together — block-print cotton over indigo selvedge. A capsule wardrobe in two pieces.",
+  },
+  {
+    slug: "tieback-paisley-sundress",
+    name: "Tie-Back Paisley Sundress",
+    shortDescription: "Open-back tie detail · Hand-printed voile · Made to order",
+    longDescription:
+      "The Tie-Back Paisley takes our best-selling mustard paisley and cuts it into a sundress with a back you can adjust. The straps tie at the nape in a small bow — pull them tighter for a higher neckline, looser for a deeper open back. The fabric is a cotton voile we found in a small weaving collective in Kanchipuram.",
+    fabric: "100% hand-printed cotton voile",
+    care: "Hand wash cold · Line dry · Iron on reverse",
+    fitsNotes:
+      "Straps tie at the nape — adjustable depth. Made to order, 3–4 weeks lead time. We'll DM you photos at every stage.",
+    priceINR: 3200,
+    pattern: "paisley",
+    availability: "made to order",
+    drop: "Summer 2026",
+    palette: { from: "var(--mustard)", to: "var(--chocolate)" },
+    colors: [
+      { name: "Mustard", hex: "#D4A017" },
+    ],
+    sizes: ["XS", "S", "M", "L"],
+    cover: "/images/products/tieback-paisley-sundress/cover.jpg",
+    gallery: [
+      "/images/products/tieback-paisley-sundress/01-front.jpg",
+      "/images/products/tieback-paisley-sundress/02-side.jpg",
+      "/images/products/tieback-paisley-sundress/03-detail.jpg",
+    ],
+    designersNote:
+      "The straps tie at the nape — tighten for higher coverage, loosen for deeper back. Made to order takes 3–4 weeks. We'll DM updates with photos at every stage.",
+  },
 ];
 
 export function getProduct(slug: string): Product | undefined {

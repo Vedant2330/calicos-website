@@ -68,7 +68,10 @@ function ProductCard({
       className="group block"
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="relative aspect-[4/5] bg-ivory overflow-hidden mb-5">
+      <div
+        className="relative aspect-[4/5] bg-ivory overflow-hidden mb-5"
+        style={{ borderRadius: "20px" }}
+      >
         <div
           className="absolute inset-0"
           style={{
@@ -83,8 +86,9 @@ function ProductCard({
           quality={82}
           sizes="(min-width: 1024px) 22vw, (min-width: 768px) 45vw, 90vw"
           className="object-cover img-editorial transition-transform duration-700 group-hover:scale-[1.03]"
+          style={{ borderRadius: "20px" }}
         />
-        <div className="absolute top-4 left-4 text-caption text-ink-faint tracking-widest">
+        <div className="absolute top-4 left-4 text-caption text-ink-faint tracking-widest bg-cream/85 backdrop-blur-sm px-2 py-1 rounded-sm">
           № 0{index + 1}
         </div>
       </div>

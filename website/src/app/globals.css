@@ -318,6 +318,11 @@ img {
   to   { opacity: 1; }
 }
 
+@keyframes slideFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
 @keyframes wordReveal {
   from { opacity: 0; transform: translateY(110%); }
   to   { opacity: 1; transform: translateY(0); }
@@ -352,6 +357,35 @@ img {
 }
 .anim-count-bump {
   animation: countBump var(--dur-cart-count-bump) var(--ease-out-soft);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Image frames — ROUNDED per user override 2026-06-18
+   Originally §8.1 said sharp corners. User override: rounded 20px.
+   ───────────────────────────────────────────────────────── */
+
+.img-frame {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.img-frame-hero {
+  border-radius: 0 0 28px 28px;
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Rounded card primitive (used by product cards, journal cards, etc.)
+   ───────────────────────────────────────────────────────── */
+
+.card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.card img {
+  border-radius: 20px 20px 0 0;
+}
+.card-body {
+  border-radius: 0 0 20px 20px;
 }
 
 /* ─────────────────────────────────────────────────────────

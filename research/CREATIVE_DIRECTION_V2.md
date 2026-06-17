@@ -222,6 +222,12 @@ Empty cart: warm. "Your bag is empty. Find your first piece." Not "Your shopping
 
 The user flagged two design system constraints in a post-V2 review pass that were not yet captured as named, traceable decisions in this document. **Per your instruction "if it's missing, add it now before I sign off,"** they are added here as named constraints. **My interpretation is flagged — please confirm or correct before signing off.** If either interpretation is wrong, the constraint below is the one to revise; if the interpretation is right, the wording below is the source of truth.
 
+#### USER OVERRIDE (added 2026-06-18, same review pass)
+
+**Image-frame rounding** — the original §8.1 Constraint 2 below said "Image frames (product card covers, hero photo containers, founder portraits) are NOT rounded at all. Sharp corners on imagery; rounded corners on UI containers." **The user has explicitly overridden this.** New rule: image frames ARE rounded at 20px (cards) and 28px on the hero bottom corners. This was confirmed in the build review after seeing the site look "too flat without corners on the imagery." The previous "sharp corners on imagery" decision is **reversed**.
+
+**Where this applies:** hero section (rounded bottom-left and bottom-right at 28px), all product card covers (rounded 20px), all journal card covers (rounded 20px), founder portrait in StoryTeaser (rounded 20px), PDP hero image (rounded 20px), FabricReveal product row images (rounded 20px). **Where this does NOT apply:** small icon-only UI elements (search icon, cart badge number chip — those stay small/rounded-sm), input fields and buttons (already rounded per Constraint 2).
+
 #### Constraint 1 — Floating navbar (interpretation)
 
 **The site uses a floating navbar, not a pushed-down sticky bar.**
