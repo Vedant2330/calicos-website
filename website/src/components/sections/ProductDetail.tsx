@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import type { Product } from "@/data/products";
+import { products, type Product } from "@/data/products";
 
 export function ProductDetail({ product }: { product: Product }) {
   const [activeImage, setActiveImage] = useState(0);
@@ -142,7 +142,6 @@ export function ProductDetail({ product }: { product: Product }) {
 }
 
 function RelatedProducts({ currentId }: { currentId: string }) {
-  const { products } = require("@/data/products") as typeof import("@/data/products");
   const others = products.filter((p) => p.id !== currentId).slice(0, 3);
 
   if (others.length === 0) return null;

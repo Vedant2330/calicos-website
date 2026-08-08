@@ -33,7 +33,7 @@ export function FabricReveal() {
       "(prefers-reduced-motion: reduce)"
     ).matches;
     if (prefersReducedMotion) {
-      setProgress(1);
+      setTimeout(() => setProgress(1), 0);
       return;
     }
 

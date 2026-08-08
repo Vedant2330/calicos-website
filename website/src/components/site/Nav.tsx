@@ -37,7 +37,7 @@ export function Nav() {
   }, [isCheckoutFlow]);
 
   useEffect(() => {
-    setMenuOpen(false);
+    setTimeout(() => setMenuOpen(false), 0);
   }, [pathname]);
 
   // Checkout flow = always solid

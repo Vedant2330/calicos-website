@@ -12,7 +12,7 @@ export function BrandStory() {
           Calicos began in Pune with a simple idea: to create hand-block-printed kurtas and dresses that feel effortless, modern, and unmistakably Indian. We source fabrics we believe in, work with printers who understand the craft, and design each piece to move with you—from casual mornings to family gatherings.
         </p>
         <p className="text-body-lg text-ink/70 mb-12 leading-relaxed">
-          Every garment carries the story of its print, its maker, and the care that went into its creation. We're not trying to be everything to everyone. We're just trying to make clothes you'll love wearing.
+          Every garment carries the story of its print, its maker, and the care that went into its creation. We&apos;re not trying to be everything to everyone. We&apos;re just trying to make clothes you&apos;ll love wearing.
         </p>
 
         {/* Stats Grid */}
