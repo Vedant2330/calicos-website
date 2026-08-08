@@ -1,19 +1,6 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, Noto_Serif_Devanagari } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
-import { SmoothScroll } from "@/components/system/SmoothScroll";
-import { Cursor } from "@/components/system/Cursor";
-import { Nav } from "@/components/site/Nav";
-import { Footer } from "@/components/site/Footer";
-import { InstagramDM } from "@/components/site/InstagramDM";
-import { CartDrawer } from "@/components/site/CartDrawer";
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,29 +9,29 @@ const inter = Inter({
   display: "swap",
 });
 
-const notoDevanagari = Noto_Serif_Devanagari({
-  variable: "--font-noto-devanagari",
-  subsets: ["devanagari"],
-  weight: ["400", "500"],
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://calicos.co"),
   title: {
-    default: "Calicos — Handcrafted kurtas from Pune",
+    default: "Calicos — Hand-block-printed kurtas from Pune",
     template: "%s — Calicos",
   },
   description:
-    "Hand-block-printed kurtas, sundresses, and bandanas. Block-printed by hand in Pune, India. DM to order on Instagram.",
+    "Hand-block-printed kurtas and casual dresses from Pune, India. Designed for warmth, comfort, and effortless style. DM to order on Instagram.",
   keywords: [
     "Calicos",
-    "handcrafted kurtas",
-    "block print clothing",
-    "Indian boutique",
-    "Pune fashion",
-    "slow fashion India",
-    "indie fashion label",
+    "hand-block-printed kurtas",
+    "Indian fashion",
+    "Pune brand",
+    "casual dresses",
+    "kurtas",
+    "slow fashion",
   ],
   authors: [{ name: "Calicos" }],
   creator: "Calicos",
@@ -53,17 +40,16 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://calicos.co",
     siteName: "Calicos",
-    title: "Calicos — Handcrafted kurtas from Pune",
+    title: "Calicos — Hand-block-printed kurtas from Pune",
     description:
-      "Hand-block-printed kurtas, sundresses, and bandanas. Block-printed by hand in Pune, India.",
+      "Hand-block-printed kurtas and casual dresses from Pune, India.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calicos — Handcrafted kurtas from Pune",
+    title: "Calicos — Hand-block-printed kurtas from Pune",
     description:
-      "Hand-block-printed kurtas, sundresses, and bandanas. Block-printed by hand in Pune, India.",
+      "Hand-block-printed kurtas and casual dresses from Pune, India.",
   },
-  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -72,23 +58,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${fraunces.variable} ${inter.variable} ${notoDevanagari.variable}`}
-    >
-      <body className="bg-cream text-ink min-h-screen flex flex-col">
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body className="bg-cream text-ink antialiased">
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <SmoothScroll />
-        <Cursor />
-        <Nav />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <CartDrawer />
-        <InstagramDM />
+        <main id="main">{children}</main>
       </body>
     </html>
   );
