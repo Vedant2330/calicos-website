@@ -81,11 +81,11 @@ export function Hero() {
             Handcrafted kurtas and casual dresses. Block-printed by hand in Pune. Designed for warmth, comfort, and effortless style.
           </p>
           <a
-            href="#featured"
+            href="#catalog"
             className="btn btn-primary anim-fade-in"
             style={{ animationDelay: "0.2s" }}
           >
-            Explore the Edit
+            Explore
           </a>
         </div>
       </div>

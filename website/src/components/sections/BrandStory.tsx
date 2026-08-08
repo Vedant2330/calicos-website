@@ -34,8 +34,13 @@ export function BrandStory() {
         {/* CTA */}
         <div className="mt-12">
           <p className="text-body text-ink/70 mb-6">Ready to explore?</p>
-          <a href="https://instagram.com/calicosdim" target="_blank" className="btn btn-primary">
-            Visit Us on Instagram
+          <a
+            href="https://wa.me/9175027560?text=Hi%20Calicos!%20I%E2%80%99d%20love%20to%20know%20more%20about%20your%20collection."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            WhatsApp
           </a>
         </div>
       </div>

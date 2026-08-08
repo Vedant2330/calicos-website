@@ -97,15 +97,17 @@ export function ProductDetail({ product }: { product: Product }) {
               {/* CTA */}
               <div className="flex flex-col gap-3">
                 <a
-                  href="https://instagram.com/calicosdim"
+                  href={`https://wa.me/9175027560?text=${encodeURIComponent(
+                    `Hi Calicos! I'd love to know more about ${product.name}.`
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"
                 >
-                  Enquire on Instagram
+                  WhatsApp
                 </a>
                 <p className="text-caption text-warm-gray text-center">
-                  DM to order • We reply within the hour
+                  Message us on WhatsApp • We reply within the hour
                 </p>
               </div>
 

@@ -64,12 +64,12 @@ export function ProductCatalog() {
         {/* CTA */}
         <div className="mt-16 md:mt-20 text-center">
           <a
-            href="https://instagram.com/calicosdim"
+            href="https://wa.me/9175027560?text=Hi%20Calicos!%20I%E2%80%99d%20love%20to%20know%20more%20about%20your%20collection."
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
-            View Full Collection on Instagram
+            WhatsApp
           </a>
         </div>
       </div>
@@ -170,12 +170,14 @@ export function ProductCatalog() {
 
                 {/* CTA */}
                 <a
-                  href="https://instagram.com/calicosdim"
+                  href={`https://wa.me/9175027560?text=${encodeURIComponent(
+                    `Hi Calicos! I'd love to know more about ${selectedProduct.name}.`
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary inline-flex items-center gap-2"
                 >
-                  <span>Enquire on Instagram</span>
+                  <span>WhatsApp</span>
                   <svg
                     className="w-4 h-4"
                     fill="none"

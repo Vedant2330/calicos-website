@@ -13,10 +13,10 @@ import { ProductCatalog } from "@/components/catalog/ProductCatalog";
  * 
  * Structure:
  * 1. Hero with integrated header + video background
- * 2. Featured collection grid
- * 3. Raavya (Kurtis) spotlight section
- * 4. Saanjh (Casual Dresses) section
- * 5. Product Catalog
+ * 2. Product Catalog (immediately following hero)
+ * 3. Featured collection grid
+ * 4. Raavya (Kurtis) spotlight section
+ * 5. Saanjh (Casual Dresses) section
  * 6. Brand story with stats
  * 7. Footer with links
  */
@@ -25,10 +25,10 @@ export default function Home() {
     <>
       <Header />
       <Hero />
+      <ProductCatalog />
       <Featured />
       <KurtisSpotlight />
       <SaanjhCollection />
-      <ProductCatalog />
       <BrandStory />
       <Footer />
     </>
